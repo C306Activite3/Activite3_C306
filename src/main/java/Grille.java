@@ -1,7 +1,8 @@
 /**
  * 
  */
-package miage.c306.dev2;
+// test modification pour le devoir 3
+package miage.c306.dev3;
 
 /**
  * @author jeefntumba@gmail.com
