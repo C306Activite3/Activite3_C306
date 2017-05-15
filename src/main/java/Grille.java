@@ -2,7 +2,6 @@
  * 
  */
 package miage.c306.dev2;
-
 /**
  * @author jeefntumba@gmail.com
  *
