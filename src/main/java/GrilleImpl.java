@@ -1,5 +1,6 @@
 package miage.c306.dev2;
 
+import java.util.Scanner;
 /**
  * @author jeefntumba@gmail.com
  *
@@ -48,7 +49,9 @@ public class GrilleImpl implements Grille {
 	@Override
 	public final void setValue(final int x, final int y, final char value)
 			throws IllegalArgumentException {
-		if (possible(x, y, value)) {
+				System.out.println(x+" "+y+" "+value);
+		if (possible(x, y,value)) {
+			//[y][x]
 			if (this.grille[y][x] == Grille.EMPTY) {
 				this.grille[y][x] = value;
 			}
@@ -102,8 +105,8 @@ public class GrilleImpl implements Grille {
 						}
 					}
 				}
-				if (isBornePossible(x, y)
-					|| isPossible(value)) {
+				if (!isBornePossible(x, y)
+					|| !isPossible(value)) {
 					throw new IllegalArgumentException();
 				}
 				return true;
@@ -123,16 +126,7 @@ public class GrilleImpl implements Grille {
 		}
 		return -1;
 	}
-	/**
-	 * genere une grille 9 X 9 contenant '@'.
-	 */
-	public final void generateGrille() {
-		for (int y = 0; y < BORNE; y++) {
-			for (int x = 0; x < BORNE; x++) {
-				grille [y][x] = Grille.EMPTY;
-			}
-		}
-	}
+	
 	/**
 	 * Test si est un caractere autorise.
 	 * @param value  valeur
@@ -157,5 +151,56 @@ public class GrilleImpl implements Grille {
 			return true;
 		}
 		return false;
+	}
+	/*
+		METHODES ACTIVITE 3
+	/**
+	 * genere une grille 9 X 9 contenant '@'.
+	 */
+	public final void generateGrille() {
+		for (int y = 0; y < BORNE; y++) {
+			for (int x = 0; x < BORNE; x++) {
+				grille [y][x] = Grille.EMPTY;
+			}
+		}
+	}
+	/**
+	* affiche la grille sudoku.
+	*/
+	public void affiche(){
+		System.out.println("===================");
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++){
+				System.out.print("|" + grille[i][j]);
+			}
+			System.out.println("|");
+		}
+		System.out.println("===================");
+	}
+	public static void main(String[] args) {
+		GrilleImpl sudoku = new GrilleImpl();
+		sudoku. affiche();
+		
+		String chaine;
+		char valeur;
+		int ligne;
+		int colonne;
+		
+			while(!sudoku.complete()){	
+			System.out.println("Entrez la valeur:");
+			Scanner s = new Scanner(System.in);
+			 chaine = s.nextLine();
+			 System.out.println("Entrez respectivement la ligne et la colonne :");
+			 valeur = chaine.charAt(0);
+			 ligne = s.nextInt();
+			 colonne = s.nextInt();
+				try{
+					sudoku.setValue(ligne, colonne,valeur);
+				}catch(IllegalArgumentException e){
+					System.out.println("l'application viend de lever illegaArmentException ");
+				}
+				System.out.println("apres insertion");
+				sudoku.affiche();
+			}
 	}
 }

@@ -3,10 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <name>Devoir2_C306</name>
-  <description>devoir module C306 grille Sudoku couverture et test unitaires</description>
-  <version>1.1</version>
+  <description>devoir module C306 Solveur Sudoku</description>
+  <version>1.3</version>
   <groupId>default</groupId>
-  <artifactId>Devoir2_C306</artifactId>
+  <artifactId>Devoir3_C306</artifactId>
 
   <dependencies>
     <dependency><!-- bibliotheque junit -->
